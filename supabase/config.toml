@@ -1,0 +1,43 @@
+# Supabase Configuration for Trickster
+# This file configures the local Supabase development environment
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[auth]
+enabled = true
+port = 54324
+site_url = "http://127.0.0.1:3000"
+additional_redirect_urls = ["https://127.0.0.1:3000"]
+jwt_expiry = 3600
+refresh_token_rotation_enabled = true
+security_update_password_require_reauthentication = true
+
+[auth.email]
+enable_signup = false  # Single-user application
+double_confirm_changes = false
+enable_confirmations = false
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 15
+
+[realtime]
+enabled = false  # Not needed for this application
+
+[storage]
+enabled = false  # Using file system storage instead
+
+[edge_functions]
+enabled = false  # Not using edge functions
+
+[analytics]
+enabled = false  # Privacy-focused single-user app
+
+[functions]
+verify_jwt = false
